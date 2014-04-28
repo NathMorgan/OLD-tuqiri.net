@@ -4,7 +4,27 @@ html
         title= title
         link(rel='stylesheet', href='/stylesheets/style.css')
     body
-        block content
+        .wrapper
+            header
+                #logo: a(href='#home'): img(src='images/logo.png')
+                #title TUQIRI
+                nav
+                    a(href="#home"):| HOME
+                    a(href="#about"):| ABOUT
+                    a(href="#projects"):| PROJECTS
+                    a(href="#contact"):| CONTACT
+            block content
+            .footerpush
+        footer
+            |©
+            a(href="http://dragonetit.co.uk/") DragoNet
+            |  IT 2014. All rights reserved.
+            br
+            | Site created in express.js using node.js server
+            br
+            #links
+                a(href='http://blog.tuqiri.net'): | Blog
+                a(href='https://github.com/tuqiri/tuqiri.net'): | Github
         script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
         script(src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js')
         script(src='/javascripts/main.js')
