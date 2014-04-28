@@ -9,10 +9,10 @@ html
                 #logo: a(href='#home'): img(src='images/logo.png')
                 #title TUQIRI
                 nav
-                    a(href="#" onclick="changepage('home')"):| HOME
-                    a(href="#" onclick="changepage('about')"):| ABOUT
-                    a(href="#" onclick="changepage('projects')"):| PROJECTS
-                    a(href="#" onclick="changepage('contact')"):| CONTACT
+                    a(class="nav-link" id="home"):| HOME
+                    a(class="nav-link" id="about"):| ABOUT
+                    a(class="nav-link" id="projects"):| PROJECTS
+                    a(class="nav-link" id="contact"):| CONTACT
             block content
             .footerpush
         footer
