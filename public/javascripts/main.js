@@ -32,14 +32,14 @@ $(document).ready(function(){
 
         //Adding the new clicked page to the array
         pageArray.push($(this));
-        startOfArray = startOfArray + 1
+        startOfArray = startOfArray + 1;
 
         //Changing the CSS of the clicked navigation to being clicked
         pageArray[startOfArray].css({"color" : "darkblue"});
         pageArray[startOfArray].css({"cursor" : "auto"});
 
         //Getting the html of the page that is selected then storing the page in the web browsers history
-        $.get("http://tuqiri.net" + pageArray[startOfArray].attr('href'), function(data) {
+        $.get(pageArray[startOfArray].attr('href'), function(data) {
             $(".navChange").html($(data).find(".navChange").html());
         });
         history.pushState({}, pageArray[startOfArray].attr('id'), pageArray[startOfArray].attr('href'));
@@ -49,7 +49,9 @@ $(document).ready(function(){
     History.Adapter.bind(window,'statechange',function() {
         var State = History.getState();
 
-        $.get(State.url, function(data) {
+        var link = /[^/]*$/.exec(State.url)[0];
+
+        $.get("/" + link, function(data) {
             $(".navChange").html($(data).find(".navChange").html());
         });
 
