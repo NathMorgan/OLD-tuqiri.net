@@ -9,10 +9,10 @@ html
                 #logo: a(href='#home'): img(src='images/logo.png')
                 #title TUQIRI
                 nav
-                    a(class="nav-link" id="home"):| HOME
-                    a(class="nav-link" id="about"):| ABOUT
-                    a(class="nav-link" id="projects"):| PROJECTS
-                    a(class="nav-link" id="contact"):| CONTACT
+                    a(class="nav-link" id="home" href="/"):| HOME
+                    a(class="nav-link" id="about" href="/about"):| ABOUT
+                    a(class="nav-link" id="projects" href="/projects"):| PROJECTS
+                    a(class="nav-link" id="contact" href="/contact"):| CONTACT
             #content-wrapper
                 block content
             .footerpush
@@ -28,4 +28,5 @@ html
                 a(href='https://github.com/tuqiri/tuqiri.net'): | Github
         script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
         script(src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js')
+        script(src='/javascripts/history.js')
         script(src='/javascripts/main.js')
