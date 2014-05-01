@@ -3,24 +3,44 @@ $(document).ready(function(){
     //Creating an array that will store the breadcrumb of the user
     var pageArray = [];
 
-    //Adding the first value to the page array of where the user landed on the site
-    pageArray.push($("#" + $("head title").text().toLowerCase()));
-    var startOfArray = pageArray.length - 1;
+    //Creating an array that will store the pages html
+    var pages = [];
+
+    var startOfArray;
+
+    var supportshtml5 = true;
 
     var History = window.History;
 
-    //Checking to see if the users browser supports html5 histroy
-    if(!History.enabled){
-        alert("This site works better on a browser that supports HTML5. Please upgrade to get the best content.");
+    initialize();
+
+    function initialize(){
+        //Adding the first value to the page array of where the user landed on the site
+        pageArray.push($("#" + $("head title").text().toLowerCase()));
+        startOfArray = pageArray.length - 1;
+
+        //Checking to see if the users browser supports html5 history
+        if(!History.enabled){
+            alert("This site works better on a browser that supports HTML5. Please upgrade to get the best content.");
+            supportshtml5 = false;
+        }
+
+        //Adding the first landed page to the web browsers history
+        History.pushState({}, pageArray[startOfArray].attr('id'), pageArray[startOfArray].attr('href'));
+
+        $.when($.get('/'), $.get('/about'), $.get('/projects'), $.get('/contact')).done(function(home, about, projects, contact){
+            //Caching the other html pages for increased speeds
+            pages.push({Name: "home", HTML: $(home[0]).find(".navChange").html()});
+            pages.push({Name: "about", HTML: $(about[0]).find(".navChange").html()});
+            pages.push({Name: "projects", HTML: $(projects[0]).find(".navChange").html()});
+            pages.push({Name: "contact", HTML: $(contact[0]).find(".navChange").html()});
+        });
     }
 
-
-    //Adding the first landed page to the web browsers history
-    History.pushState({}, pageArray[startOfArray].attr('id'), pageArray[startOfArray].attr('href'));
-
     $(".nav-link").click(function(event){
-        //Preventing the links from firing making the user leave the page.
-        event.preventDefault();
+        //Preventing the links from firing making the user leave the page. If the users' browser does not support then it will allow page to leave
+        if(supportshtml5)
+            event.preventDefault();
 
         //Checking to see if the clicked link is the currently displayed one preventing from it loading a page that is already loaded
         if($(this).attr('id') == pageArray[startOfArray].attr('id'))
@@ -38,9 +58,12 @@ $(document).ready(function(){
         pageArray[startOfArray].css({"color" : "darkblue"});
         pageArray[startOfArray].css({"cursor" : "auto"});
 
-        //Getting the html of the page that is selected then storing the page in the web browsers history
-        $.get(pageArray[startOfArray].attr('href'), function(data) {
-            $(".navChange").html($(data).find(".navChange").html());
+        //Getting the html of the page that is selected, animating it and then storing the page in the web browsers history
+
+        pages.forEach(function(page){
+            if(page.Name == pageArray[startOfArray].attr('id')){
+                $(".navChange").html(page.HTML);
+            }
         });
         history.pushState({}, pageArray[startOfArray].attr('id'), pageArray[startOfArray].attr('href'));
 
