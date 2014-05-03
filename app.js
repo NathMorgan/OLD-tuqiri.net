@@ -8,6 +8,8 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var mongo = require('mongodb');
+var mongoskin = require('mongoskin');
 
 var app = express();
 
@@ -31,6 +33,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+// Make the database accessible to the router
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
 
 app.get('/', routes.index);
 app.get('/about', routes.about);

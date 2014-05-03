@@ -82,6 +82,8 @@ $(document).ready(function(){
             $(".navChange").html($(data).find(".navChange").html());
         });
 
+
+        //Removing the last
         pageArray.shift();
         startOfArray = startOfArray - 1;
     });
