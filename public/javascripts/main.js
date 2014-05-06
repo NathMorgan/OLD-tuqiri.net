@@ -6,6 +6,9 @@ $(document).ready(function(){
     //Creating an array that will store the pages html
     var pages = [];
 
+    //Creating an array that will store the projects
+    var projects = [];
+
     var startOfArray;
 
     var supportshtml5 = true;
@@ -86,6 +89,10 @@ $(document).ready(function(){
         //Removing the last
         pageArray.shift();
         startOfArray = startOfArray - 1;
+    });
+
+    $(".projects").click(function(event){
+        alert("Clicked");
     });
 
 });
