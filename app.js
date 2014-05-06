@@ -42,7 +42,7 @@ app.use(function(req,res,next){
 
 app.get('/', routes.index);
 app.get('/about', routes.about);
-app.get('/projects', routes.projects);
+app.get('/portfolio', routes.portfolio);
 app.get('/contact', routes.contact);
 app.get('/users', user.list);
 

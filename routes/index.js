@@ -16,11 +16,11 @@ exports.about = function(req, res){
 };
 
 /*
- * GET projects.
+ * GET portfolio.
  */
 
-exports.projects = function(req, res){
-    res.render('projects', { title: 'Projects' });
+exports.portfolio = function(req, res){
+    res.render('portfolio', { title: 'Portfolio' });
 };
 
 /*

@@ -31,12 +31,12 @@ $(document).ready(function(){
         //Adding the first landed page to the web browsers history
         History.pushState({}, pageArray[startOfArray].attr('id'), pageArray[startOfArray].attr('href'));
 
-        $.when($.get('/'), $.get('/about'), $.get('/projects'), $.get('/contact')).done(function(home, about,
-                                                                                                 projects, contact){
+        $.when($.get('/'), $.get('/about'), $.get('/portfolio'), $.get('/contact')).done(function(home, about,
+                                                                                                 portfolio, contact){
             //Caching the other html pages for increased speeds
             pages.push({Name: "home", HTML: $(home[0]).find(".navChange").html()});
             pages.push({Name: "about", HTML: $(about[0]).find(".navChange").html()});
-            pages.push({Name: "projects", HTML: $(projects[0]).find(".navChange").html()});
+            pages.push({Name: "portfolio", HTML: $(portfolio[0]).find(".navChange").html()});
             pages.push({Name: "contact", HTML: $(contact[0]).find(".navChange").html()});
         });
     }
@@ -91,7 +91,7 @@ $(document).ready(function(){
         startOfArray = startOfArray - 1;
     });
 
-    $(".projects").click(function(event){
+    $(".project").click(function(event){
         alert("Clicked");
     });
 
