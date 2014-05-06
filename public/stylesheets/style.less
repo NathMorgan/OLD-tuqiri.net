@@ -35,7 +35,6 @@ html, body {
 }
 
 #content-wrapper{
-  overflow: hidden;
   width: 80%;
   margin: auto;
 }
@@ -52,13 +51,15 @@ header{
   border-bottom: 5px solid #4d4d4d;
 }
 
-#logo img{
-  height: 200px;
+#logo a img {
+  height: 160px;
 }
 
 #logo{
   width: 140px;
   float: left;
+  margin-top: 20px;
+  margin-left: 10px;
 }
 
 #title{
@@ -97,7 +98,7 @@ nav a:hover {
 /* <--ABOUT --> */
 
 #bioWrapper{
-  border-bottom: 5px solid #4d4d4d;
+  border-bottom: 2px solid #4d4d4d;
   padding-bottom: 15px;
 }
 
@@ -113,11 +114,11 @@ nav a:hover {
 #personal-picture{
   width: 160px;
   margin-left: 50px;
-  border: 5px solid #4d4d4d;
+  border: 2px solid #4d4d4d;
 }
 
 #certWrapper{
-  width: 600px;
+  width: 400px;
   margin-left: 60px;
   margin-top: 35px;
   float: left;
@@ -129,12 +130,12 @@ nav a:hover {
 }
 
 #langWrapper{
-  border-left: 5px solid #4d4d4d;
+  border-left: 2px solid #4d4d4d;
 }
 
 .skillWrappers{
   width: 350px;
-  border-right: 5px solid #4d4d4d;
+  border-right: 2px solid #4d4d4d;
   float: left;
   height: 278px;
   text-align: center;
@@ -145,6 +146,45 @@ nav a:hover {
   text-align: left;
 }
 
+/* PROJECTS */
+
+#projectsBox{
+  margin-top: 25px;
+}
+
+.projects{
+  width: 200px;
+  height: 200px;
+  float: left;
+  border: 2px solid #4d4d4d;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.projects:hover{
+  background-color: rgba(50, 50, 50, 0.75);
+  border-color: black;
+}
+
+.projectsTitle{
+  font-size: 20px;
+}
+
+.projectIcon{
+  height: 155px;
+}
+
+.projectIcon img{
+  max-height: 150px;
+}
+
+.projectIdent{
+  text-align: right;
+  font-size: 15px;
+  padding-right: 10px;
+}
 /* <--FOOTER--> */
 
 .footerpush{
