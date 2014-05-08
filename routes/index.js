@@ -16,17 +16,17 @@ exports.about = function(req, res){
 };
 
 /*
- * GET portfolio.
+ * GET contact.
  */
 
-exports.portfolio = function(req, res){
-    res.render('portfolio', { title: 'Portfolio' });
+exports.contact = function(req, res){
+    res.render('contact', { title: 'Contact' });
 };
 
 /*
  * GET contact.
  */
 
-exports.contact = function(req, res){
-    res.render('contact', { title: 'Contact' });
+exports.bug = function(req, res){
+    res.render('bug', { title: 'bug' });
 };
