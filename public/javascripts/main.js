@@ -76,17 +76,19 @@ $(document).ready(function(){
 
     });
 
+    //This bind gets fired when there is a history change such as going forward or backwards in the history
     History.Adapter.bind(window,'statechange',function() {
-        var State = History.getState();
+        //Getting the history state
+        var state = History.getState();
 
-        var link = /[^/]*$/.exec(State.url)[0];
+        //Shortening the link down from http://tuqiri.net/example to /example
+        var link = /[^/]*$/.exec(state.url)[0];
 
         $.get("/" + link, function(data) {
             $(".navChange").html($(data).find(".navChange").html());
         });
 
-
-        //Removing the last
+        //Removing the last page from the array
         pageArray.shift();
         startOfArray = startOfArray - 1;
     });
