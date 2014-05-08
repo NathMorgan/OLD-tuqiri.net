@@ -6,6 +6,7 @@
 var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
+var portfolio = require('./routes/portfolio');
 var http = require('http');
 var path = require('path');
 var mongo = require('mongodb');
@@ -42,8 +43,9 @@ app.use(function(req,res,next){
 
 app.get('/', routes.index);
 app.get('/about', routes.about);
-app.get('/portfolio', routes.portfolio);
+app.get('/portfolio', portfolio.index);
 app.get('/contact', routes.contact);
+app.get('/bug', routes.bug);
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), app.get('domain'), function(){
