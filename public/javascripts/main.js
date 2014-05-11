@@ -93,8 +93,15 @@ $(document).ready(function(){
         startOfArray = startOfArray - 1;
     });
 
-    $(".project").click(function(event){
-        alert("Clicked");
+    $(".projects").click(function(event){
+        $().dialog({
+            resizable: false,
+            modal: true,
+            width: 400,
+            height: 450,
+            overlay: { backgroundColor: "#000", opacity: 0.5 },
+            close: function(ev, ui) { $(this).remove(); }
+        })
     });
 
 });
