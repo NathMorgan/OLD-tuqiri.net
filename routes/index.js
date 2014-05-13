@@ -28,5 +28,5 @@ exports.contact = function(req, res){
  */
 
 exports.bug = function(req, res){
-    res.render('bug', { title: 'bug' });
+    res.render('bug', { title: 'Bug' });
 };
