@@ -1,5 +1,5 @@
-@header-height: 213px;
-@footer-height: 100px;
+@header-height: 255px;
+@footer-height: 5%;
 
 @header-height-tablet: 0px;
 @footer-height-tablet: 0px;
@@ -10,12 +10,16 @@
 
 @font-face {
   font-family: HighTower;
-  src: url(/public/fonts/HTOWERT.TTF);
+  src: url('../../fonts/HTOWERT.TTF');
 }
 
 @font-face {
   font-family: SourceSansPro;
-  src: url(/public/fonts/source-sans-pro/SourceSansPro-Regular.ttf);
+  src: url('../../fonts/source-sans-pro/sourcesanspro.ttf');
+}
+
+*{
+  z-index: 0;
 }
 
 html, body {
@@ -24,64 +28,57 @@ html, body {
   height: 100%;
   padding: 0px;
   margin: 0px;
-  min-width: 1490px;
 }
 
-.wrapper{
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto -@footer-height;
+img{
+  border: none;
 }
+
 
 #content-wrapper{
-  width: 80%;
+  width: 85%;
+  height: 60%;
   margin: auto;
 }
 
-.clrfloats{
-  clear: both;
-}
 
 /* <--HEADER--> */
 
 header{
   width: 100%;
   height: @header-height;
-  border-bottom: 5px solid #4d4d4d;
-}
-
-#logo a img {
-  height: 160px;
+  background-color: white;
 }
 
 #logo{
-  width: 140px;
+  width: 270px;
   float: left;
-  margin-top: 20px;
-  margin-left: 10px;
 }
 
-#title{
-  height: 213px;
-  line-height: 213px;
-  display: inline-block;
-  float: left;
-  font-family: HighTower;
-  font-size: 70px;
-  color: #4d4d4d;
+#logo img{
+  width: inherit;
+  padding: 15px;
 }
 
 nav{
   font-family: SourceSansPro;
-  font-size: 50px;
-  float: right;
-  height: 213px;
-  line-height: 360px;
-  margin-right: 200px;
+  font-size: 40px;
+  width: 100%;
+  border-bottom: 5px solid #4d4d4d;
+  display: inline-block;
 }
 
-nav a {
+nav ul{
+  text-align: right;
+  list-style: none;
+  margin: 0;
+}
+
+nav ul li{
+  display: inline;
+}
+
+nav ul li a{
   margin-right: 30px;
   color: #4d4d4d;
   text-decoration: none;
@@ -92,23 +89,31 @@ nav a:hover {
   cursor: pointer;
 }
 
+
 /* <--HOME--> */
 
 
 /* <--ABOUT --> */
 
+#aboutWrapper{
+
+}
+
 #bioWrapper{
-  border-bottom: 2px solid #4d4d4d;
-  padding-bottom: 15px;
+  max-height: 500px;
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
 }
 
 #bio{
   width: 500px;
+  min-width: 310px;
   float: left;
 }
 
-#bio-image{
-  float: left;
+#bio-img{
+  margin-right: 100px;
 }
 
 #personal-picture{
@@ -117,28 +122,45 @@ nav a:hover {
   border: 2px solid #4d4d4d;
 }
 
-#certWrapper{
-  width: 400px;
-  margin-left: 60px;
-  margin-top: 35px;
-  float: left;
+#bioCertWrapper{
+  display: inline-block;
+}
+
+#bioCertWrapper img{
+  width: 9.5vw;
+  min-width: 150px;
+  max-width: 190px;
 }
 
 #experienceWrapper{
-  width: 1070px;
-  margin: auto;
+
 }
 
 #langWrapper{
-  border-left: 2px solid #4d4d4d;
+  margin-left: 100px;
 }
 
 .skillWrappers{
-  width: 350px;
-  border-right: 2px solid #4d4d4d;
-  float: left;
-  height: 278px;
-  text-align: center;
+  max-width: 350px;
+  margin-right: 5%;
+}
+
+.skillWrappers a{
+  text-decoration: none;
+  color: #4d4d4d;
+}
+
+.skillWrappers a:hover{
+  color: #878787;
+}
+
+.skillWrappers h2{
+  height: 50px;
+}
+
+.skillWrappers ul{
+  list-style: none;
+  padding: 0;
 }
 
 .skillWrappers ul li{
@@ -187,21 +209,197 @@ nav a:hover {
 }
 /* <--FOOTER--> */
 
-.footerpush{
-  height: @footer-height;
-}
 
 footer{
-  height: @footer-height - 5px;
-}
-
-footer{
-  border-top: 5px solid #4d4d4d;
   text-align: center;
+  text-decoration: none;
+  font-family: SourceSansPro;
+  font-size: 16px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin: 0 auto;
+}
+
+footer p{
+  margin: 0;
+}
+
+footer a{
+  text-decoration: none;
+  color: #4d4d4d;
+}
+
+footer a:hover{
+  color: #878787;
+}
+
+#links{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#links li{
+  display: inline;
 }
 
 #links a{
-  margin-left: 30px
+  margin: 0 15px;
 }
 
+#dontshow{
+  display: none;
+}
 
+@media all and (max-device-width: 1000px) and (orientation: portrait){
+  body{
+    background-color: #ffffff;
+    height: 100%;
+  }
+
+  *{
+    font-size: 30px;
+  }
+
+  header{
+    width: 100%;
+  }
+
+  nav{
+    font-size: 4.5vw;
+  }
+
+  #bio{
+    width: 500px;
+    float: left;
+    margin-bottom: 100px;
+  }
+
+  #bioWrapper{
+    display: block;
+    max-height: default;
+
+  }
+
+  #bioCertWrapper{
+    position: absolute;
+    top: 500px;
+    right: 100px;
+    height: 600px;
+  }
+
+  #bio-img{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+
+  #cert-img{
+    position: absolute;
+    top: 250px;
+    right: 100px;
+  }
+  #bioCertWrapper img{
+    width: 200px;
+  }
+
+  .skillWrappers{
+    font-size: 30px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .skillWrappers h2{
+    height: 15px;
+  }
+
+  #langWrapper{
+    margin: 0;
+  }
+
+  #webserverWrapper{
+    margin-bottom: 100px;
+  }
+
+  footer{
+    position: initial;
+    height: 20px;
+    margin-top: 20px;
+    font-size: 12px !important;
+  }
+}
+
+@media all and (max-device-width: 1000px) and (orientation: landscape) {
+  *{
+    display: none;
+  }
+
+  html{
+    display: block;
+  }
+
+  body{
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: black;
+    animation: colourchange 1s linear 2s infinite alternate;
+    -webkit-animation: colourchange 1s linear 2s infinite alternate;
+
+  }
+
+  @keyframes colourchange{
+    0%{
+      background: black;
+    }
+
+    25%{
+      background: url('../../images/about/nathanmorgan.png');
+    }
+
+    50%{
+      background: black;
+    }
+
+    75%{
+      background: url('../../images/about/nathanmorgan.png');
+    }
+
+    100%{
+      background: black;
+    }
+  }
+
+  @-webkit-keyframes colourchange{
+    0%{
+      background: black;
+    }
+
+    25%{
+      background: url('../../images/about/nathanmorgan.png');
+    }
+
+    50%{
+      background: black;
+    }
+
+    75%{
+      background: url('../../images/about/nathanmorgan.png');
+    }
+
+    100%{
+      background: black;
+    }
+  }
+
+  #dontshow {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 100px;
+    color: #ffffff;
+    background: black;
+
+  }
+}

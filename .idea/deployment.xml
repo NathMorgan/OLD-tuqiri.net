@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="TookieServer" uploadOnCheckin="1276d1bd-aeff-4aa4-93cf-8187d38cb3cd">
+  <component name="PublishConfigData" autoUpload="Always" serverName="ftp.tuqiri.net" uploadOnCheckin="1276d1bd-aeff-4aa4-93cf-8187d38cb3cd">
     <serverData>
-      <paths name="TookieServer">
+      <paths name="ftp.tuqiri.net">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" />
+            <mapping deploy="/node/server/tuqiri.net" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
